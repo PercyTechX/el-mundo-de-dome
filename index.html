@@ -1,54 +1,100 @@
 <!DOCTYPE html>
+<!-- Declaramos el tipo de documento como HTML5 -->
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portal Educativo</title>
-  <link rel="shortcut icon" href="img/logo.ico" type="image/x-icon">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<!-- La etiqueta <html> define el inicio del documento HTML y especifica que el idioma principal es español (es) -->
 
-  <header class="header">
+<head>
+  <!-- La sección <head> contiene metadatos sobre el documento, como el título, el conjunto de caracteres y los estilos -->
+  <meta charset="UTF-8">
+  <!-- Especificamos que el conjunto de caracteres utilizado es UTF-8, que soporta caracteres especiales como tildes y ñ -->
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Configuramos la vista para dispositivos móviles, asegurando que el contenido se ajuste al ancho de la pantalla -->
+  
+  <title>Portal Educativo</title>
+  <!-- Título de la página que aparecerá en la pestaña del navegador -->
+  
+  <link rel="shortcut icon" href="img/logo.ico" type="image/x-icon">
+  <!-- Enlazamos un ícono (favicon) que aparecerá junto al título en la pestaña del navegador -->
+  
+  <link rel="stylesheet" href="style.css">
+  <!-- Enlazamos un archivo CSS externo llamado "style.css" para aplicar estilos al sitio -->
+</head>
+
+<body>
+  <!-- La etiqueta <body> contiene todo el contenido visible de la página web -->
+
+  <header class="header" role="banner">
+    <!-- La sección <header> representa el encabezado de la página -->
     <div class="logo">
-        <img src="img/logo.png" alt="logo" width="60px" height="50px">
+      <!-- Dentro del encabezado, creamos un contenedor para el logo -->
+      <img src="img/logo.png" alt="Logo del portal educativo" width="60" height="50">
+      <!-- Insertamos una imagen del logo con un texto alternativo ("alt") para accesibilidad -->
     </div>
-    <button class="menu-btn" id="menuBtn">☰</button>
-    <nav class="menu" id="menu">
-      <a href="#">Canciones</a>
+    
+    <button class="menu-btn" id="menuBtn" aria-label="Menú de navegación" aria-expanded="false">☰</button>
+    <!-- Creamos un botón con el símbolo "☰" que servirá para abrir/cerrar un menú en dispositivos móviles -->
+    
+    <nav class="menu" id="menu" role="navigation" aria-label="Menú principal">
+      <!-- La etiqueta <nav> define una sección de navegación con enlaces -->
+      <a href="#" aria-current="page">Canciones</a>
       <a href="#">Cuentos</a>
       <a href="#">Juegos</a>
       <a href="#">Recursos</a>
       <a href="#">Inglés</a>
+      <!-- Cada <a> es un enlace a diferentes secciones o páginas del sitio -->
     </nav>
   </header>
 
-  <section class="edades">
-    <div class="grupo"><img src="img/3-5.png" alt="3-5" width="150px" height="150px"> </div>
-    <div class="grupo"><img src="img/5-7.png" alt="5-7" width="150px" height="150px"> </div>
-    <div class="grupo"><img src="img/7-10.png" alt="7-10" width="150px" height="150px"> </div>
+  <section class="edades" aria-label="Rangos de edad">
+    <!-- Creamos una sección para mostrar imágenes relacionadas con rangos de edad -->
+    <div class="grupo">
+      <!-- Usamos un contenedor (<div>) para cada grupo de edad -->
+      <img src="img/3-5.png" alt="Niños de 3 a 5 años" width="150" height="150">
+      <!-- Insertamos una imagen representando el rango de edad 3-5 años -->
+      <!-- <span>3-5 años</span> -->
+    </div>
+    <div class="grupo">
+      <img src="img/5-7.png" alt="Niños de 5 a 7 años" width="150" height="150">
+      <!-- Imagen para el rango de edad 5-7 años -->
+      <!-- <span>5-7 años</span> -->
+    </div>
+    <div class="grupo">
+      <img src="img/7-10.png" alt="Niños de 7 a 10 años" width="150" height="150">
+      <!-- Imagen para el rango de edad 7-10 años -->
+      <!-- <span>7-10 años</span> -->
+    </div>
   </section>
 
   <div class="contenido-principal">
+    <!-- Contenedor principal para el contenido central de la página -->
     <div class="imagen-lateral">
-      <img src="./img/apunta.png" alt="flecha hacia juegos" class="flecha-imagen">
+      <!-- Contenedor para una imagen lateral -->
+      <img src="./img/apunta.png" alt="Flecha indicadora" class="flecha-imagen">
+      <!-- Insertamos una imagen de flecha que apunta hacia los juegos -->
     </div>
     
-    <main class="contenedor-juegos">
+    <main class="contenedor-juegos" role="main">
+      <!-- La etiqueta <main> representa el contenido principal de la página -->
       <h2>Juegos educativos y didácticos para niños</h2>
-      <div class="juegos-grid">
-        <div class="juego">Juegos de vocales</div>
-        <div class="juego">Juegos del abecedario</div>
-        <div class="juego">Juegos de matemáticas</div>
-        <div class="juego">Juegos para multiplicar</div>
-        <div class="juego">Suma y resta</div>
-        <div class="juego">Rompecabezas</div>
-        <div class="juego">Geografía</div>
-        <div class="juego">Saludo y comunicación</div>
+      <!-- Título que describe el contenido de esta sección -->
+      
+      <div class="juegos-grid" role="list">
+        <!-- Contenedor para organizar los juegos en una cuadrícula -->
+        <div class="juego" role="listitem">Juegos de vocales</div>
+        <div class="juego" role="listitem">Juegos del abecedario</div>
+        <div class="juego" role="listitem">Juegos de matemáticas</div>
+        <div class="juego" role="listitem">Juegos para multiplicar</div>
+        <div class="juego" role="listitem">Suma y resta</div>
+        <div class="juego" role="listitem">Rompecabezas</div>
+        <div class="juego" role="listitem">Geografía</div>
+        <div class="juego" role="listitem">Saludo y comunicación</div>
+        <!-- Cada <div> representa un juego específico -->
       </div>
     </main>
   </div>
 
-  <script src="script.js"></script> 
+  <script src="script.js"></script>
+  <!-- Enlazamos un archivo JavaScript externo llamado "script.js" para agregar interactividad -->
 </body>
 </html>

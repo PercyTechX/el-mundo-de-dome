@@ -1,47 +1,90 @@
 // Esperamos a que el documento HTML esté completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
     // Obtenemos referencias a los elementos del DOM
-    const menuBtn = document.getElementById('menuBtn'); // Botón del menú hamburguesa
-    const menu = document.getElementById('menu');       // Contenedor del menú
-    let isMenuOpen = false;                            // Estado del menú (abierto/cerrado)
+    const menuBtn = document.getElementById('menuBtn');
+    const menu = document.getElementById('menu');
+    let isMenuOpen = false;
 
-    // Función que verifica el tamaño de la pantalla y ajusta el menú en consecuencia
+    // Función para verificar el tamaño de la pantalla
     function checkScreenSize() {
-        // Si la pantalla es pequeña (menos de 768px)
         if (window.innerWidth <= 768) {
-            menu.style.display = 'none';      // Ocultamos el menú
-            menuBtn.style.display = 'block';  // Mostramos el botón hamburguesa
+            menu.style.display = 'none';
+            menuBtn.style.display = 'block';
+            menuBtn.setAttribute('aria-expanded', 'false');
         } else {
-            // Si la pantalla es grande
-            menu.style.display = 'flex';      // Mostramos el menú en formato horizontal
-            menuBtn.style.display = 'none';   // Ocultamos el botón hamburguesa
-            isMenuOpen = false;               // Reseteamos el estado del menú
+            menu.style.display = 'flex';
+            menuBtn.style.display = 'none';
+            isMenuOpen = false;
+            menuBtn.setAttribute('aria-expanded', 'false');
         }
     }
 
-    // Evento que se dispara cuando se hace clic en el botón del menú
-    menuBtn.addEventListener('click', function() {
+    // Función para alternar el menú
+    function toggleMenu() {
         if (!isMenuOpen) {
-            // Si el menú está cerrado, lo abrimos
-            menu.style.display = 'flex';          // Mostramos el menú
-            menu.style.flexDirection = 'column';  // Lo mostramos en columna
-            menu.style.position = 'absolute';     // Lo posicionamos absolutamente
-            menu.style.top = '100%';              // Lo colocamos justo debajo del header
-            menu.style.left = '0';                // Alineado a la izquierda
-            menu.style.backgroundColor = '#fff';  // Fondo blanco
-            menu.style.width = '100%';            // Ancho completo
-            menu.style.padding = '1rem';          // Espaciado interno
-            isMenuOpen = true;                    // Marcamos el menú como abierto
+            menu.style.display = 'flex';
+            menu.style.flexDirection = 'column';
+            menu.style.position = 'absolute';
+            menu.style.top = '100%';
+            menu.style.left = '0';
+            menu.style.backgroundColor = '#2acfcf';
+            menu.style.width = '100%';
+            menu.style.padding = '1rem';
+            menu.style.zIndex = '1000';
+            menu.classList.add('active');
+            isMenuOpen = true;
+            menuBtn.setAttribute('aria-expanded', 'true');
         } else {
-            // Si el menú está abierto, lo cerramos
-            menu.style.display = 'none';          // Ocultamos el menú
-            isMenuOpen = false;                   // Marcamos el menú como cerrado
+            menu.style.display = 'none';
+            menu.classList.remove('active');
+            isMenuOpen = false;
+            menuBtn.setAttribute('aria-expanded', 'false');
+        }
+    }
+
+    // Evento para el botón del menú
+    menuBtn.addEventListener('click', toggleMenu);
+    menuBtn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleMenu();
         }
     });
 
-    // Verificamos el tamaño de la pantalla al cargar la página
+    // Evento para cerrar el menú al hacer clic fuera
+    document.addEventListener('click', function(e) {
+        if (isMenuOpen && !menu.contains(e.target) && e.target !== menuBtn) {
+            toggleMenu();
+        }
+    });
+
+    // Evento para cerrar el menú con la tecla Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && isMenuOpen) {
+            toggleMenu();
+        }
+    });
+
+    // Verificamos el tamaño de la pantalla al cargar y al redimensionar
     checkScreenSize();
-    
-    // Agregamos un listener para cuando se redimensione la ventana
     window.addEventListener('resize', checkScreenSize);
+
+    // Mejoramos la accesibilidad del menú
+    const menuItems = menu.querySelectorAll('a');
+    menuItems.forEach((item, index) => {
+        item.setAttribute('tabindex', '0');
+        
+        // Navegación con teclado
+        item.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                e.preventDefault();
+                const nextItem = menuItems[index + 1] || menuItems[0];
+                nextItem.focus();
+            } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                e.preventDefault();
+                const prevItem = menuItems[index - 1] || menuItems[menuItems.length - 1];
+                prevItem.focus();
+            }
+        });
+    });
 }); 
