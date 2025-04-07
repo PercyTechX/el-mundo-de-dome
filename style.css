@@ -1,0 +1,186 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0fdfd;
+  color: #333;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  min-height: 100vh;
+}
+
+.header {
+  background: #2acfcf;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.menu a {
+  margin-left: 15px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.edades {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-image: url(./img/cinta-edades2.png);
+  background-size: cover;
+  background-position: center;
+  padding: 5px 0;
+  width: 100%;
+}
+
+.grupo {
+  flex: 1;
+  max-width: 33.33%;
+  padding: 5px;
+  text-align: center;
+  animation: float 3s ease-in-out infinite;
+}
+
+.grupo img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  object-fit: contain;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+.grupo:hover {
+  transform: scale(1.2);
+  transition: transform 0.5s;
+  cursor: pointer;
+  animation: none; /* Detiene la animación al hacer hover */
+}
+
+.grupo span {
+  display: block;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Nueva sección para el contenido principal usando Grid */
+.contenido-principal {
+  display: grid;
+  grid-template-areas: 
+    "lateral contenido derecho";
+  grid-template-columns: 25% 50% 25%;
+  max-width: 1350px;
+  margin: 0 auto;
+  width: 100%;
+  gap: 20px;
+}
+
+/* Estilo para la imagen lateral */
+.imagen-lateral {
+  grid-area: lateral;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.flecha-imagen {
+  max-width: 100%;
+  height: auto;
+  transform: translateX(10px);
+  /* Ajusta esto para posicionar la flecha */
+}
+
+.contenedor-juegos {
+  grid-area: contenido;
+  padding: 30px 20px;
+  width: 100%;
+}
+
+.contenedor-juegos h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #007d7d;
+}
+
+.juegos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.juego {
+  background: #ffe9a7;
+  border-radius: 10px;
+  padding: 30px 20px;
+  text-align: center;
+  font-weight: bold;
+  color: #444;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.juego:hover {
+  transform: scale(1.05);
+}
+
+/* Área derecha (puede ser usada para contenido adicional) */
+.area-derecha {
+  grid-area: derecho;
+  padding: 20px;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+  .contenido-principal {
+    grid-template-areas: 
+      "contenido contenido contenido";
+    grid-template-columns: 1fr;
+  }
+
+  .imagen-lateral,
+  .area-derecha {
+    display: none;
+  }
+
+  .edades {
+    gap: 20px;
+  }
+
+  .edades img {
+    max-width: 150px;
+  }
+
+  .grupo {
+    max-width: 33.33%;
+  }
+  
+  .grupo img {
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grupo img {
+    max-width: 80px;
+  }
+}
