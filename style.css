@@ -40,7 +40,7 @@ body {
   - position: relative;
 */
 .header {
-  background: #2acfcf;
+  background: #0eb4b4;
   padding: 5px 20px;
   display: flex;
   justify-content: space-between;
@@ -135,13 +135,14 @@ body {
   - padding: Espacio interno alrededor del contenido.
 */
 .edades {
+  /* border: 5px solid #ff0000; */
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-image: url(./img/cinta-edades3.png);
   background-size: cover;
   background-position: center;
-  padding: 8px 0;
+  padding: 2px 0;
   width: 100%;
 }
 
@@ -158,18 +159,20 @@ body {
   - gap: 10px;
 */
 .grupo {
+  /* border: 1px solid #d0ff00; */
   flex: 1;
   max-width: 33.33%;
   padding: 10px;
   text-align: center;
-  animation: float 3s ease-in-out infinite;
+  animation: float 2.6s ease-in-out infinite;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 }
 
 .grupo img {
+  /* border: 5px solid #000; */
   max-width: 150px;
   height: auto;
   transition: transform 0.3s ease;
@@ -189,7 +192,7 @@ body {
   - transform: scale(1.1); aumenta el tamaño del grupo al pasar el cursor.
 */
 .grupo:hover img {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 /*
@@ -198,11 +201,11 @@ body {
   - font-weight: 500;
   - font-size: 1rem;
 */
-.grupo span {
+/* .grupo span {
   color: #333;
   font-weight: 500;
   font-size: 1rem;
-}
+} */
 
 /*
   Estilos para el contenido principal (.contenido-principal):
@@ -238,7 +241,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 10px;
 }
 
 /*
@@ -248,9 +251,12 @@ body {
   - transform: translateX(10px); ajusta la posición horizontal.
 */
 .flecha-imagen {
-  max-width: 100%;
+  max-width: 150%;
   height: auto;
-  transform: translateX(10px);
+  transform: translateX(50px);
+ 
+ 
+
 }
 
 /*
@@ -261,7 +267,7 @@ body {
 */
 .contenedor-juegos {
   grid-area: contenido;
-  padding: 30px 20px;
+  padding: 1px 10px;
   width: 100%;
 }
 
