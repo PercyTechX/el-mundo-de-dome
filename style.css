@@ -41,7 +41,7 @@ body {
 */
 .header {
   background: #2acfcf;
-  padding: 15px 20px;
+  padding: 5px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -138,10 +138,10 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-image: url(./img/cinta-edades2.png);
+  background-image: url(./img/cinta-edades3.png);
   background-size: cover;
   background-position: center;
-  padding: 15px 0;
+  padding: 8px 0;
   width: 100%;
 }
 
