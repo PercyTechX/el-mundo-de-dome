@@ -1,67 +1,29 @@
 // Esperamos a que el documento HTML esté completamente cargado
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     // Obtenemos referencias a los elementos del DOM
     const menuBtn = document.getElementById('menuBtn');
     const menu = document.getElementById('menu');
-    let isMenuOpen = false;
 
-    // Función para verificar el tamaño de la pantalla
-    function checkScreenSize() {
-        if (window.innerWidth <= 768) {
-            menu.style.display = 'none';
-            menuBtn.style.display = 'block';
-            menuBtn.setAttribute('aria-expanded', 'false');
-        } else {
-            menu.style.display = 'flex';
-            menuBtn.style.display = 'none';
-            isMenuOpen = false;
-            menuBtn.setAttribute('aria-expanded', 'false');
-        }
-    }
+    // Función para alternar el menú en dispositivos móviles
+    menuBtn.addEventListener('click', () => {
+        menu.classList.toggle('active');
+        const isExpanded = menu.classList.contains('active');
+        menuBtn.setAttribute('aria-expanded', isExpanded);
+    });
 
-    // Función para alternar el menú
-    function toggleMenu() {
-        if (!isMenuOpen) {
-            menu.style.display = 'flex';
-            menu.style.flexDirection = 'column';
-            menu.style.position = 'absolute';
-            menu.style.top = '100%';
-            menu.style.left = '0';
-            menu.style.backgroundColor = '#2acfcf';
-            menu.style.width = '100%';
-            menu.style.padding = '1rem';
-            menu.style.zIndex = '1000';
-            menu.classList.add('active');
-            isMenuOpen = true;
-            menuBtn.setAttribute('aria-expanded', 'true');
-        } else {
-            menu.style.display = 'none';
+    // Cerrar el menú al hacer clic en un enlace
+    menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
             menu.classList.remove('active');
-            isMenuOpen = false;
             menuBtn.setAttribute('aria-expanded', 'false');
-        }
-    }
-
-    // Evento para el botón del menú
-    menuBtn.addEventListener('click', toggleMenu);
-    menuBtn.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            toggleMenu();
-        }
+        });
     });
 
-    // Evento para cerrar el menú al hacer clic fuera
-    document.addEventListener('click', function(e) {
-        if (isMenuOpen && !menu.contains(e.target) && e.target !== menuBtn) {
-            toggleMenu();
-        }
-    });
-
-    // Evento para cerrar el menú con la tecla Escape
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && isMenuOpen) {
-            toggleMenu();
+    // Cerrar el menú al hacer clic fuera de él
+    document.addEventListener('click', (event) => {
+        if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
+            menu.classList.remove('active');
+            menuBtn.setAttribute('aria-expanded', 'false');
         }
     });
 
@@ -87,4 +49,17 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-}); 
+});
+
+// Función para verificar el tamaño de la pantalla
+function checkScreenSize() {
+    if (window.innerWidth <= 768) {
+        menu.style.display = 'none';
+        menuBtn.style.display = 'block';
+        menuBtn.setAttribute('aria-expanded', 'false');
+    } else {
+        menu.style.display = 'flex';
+        menuBtn.style.display = 'none';
+        menuBtn.setAttribute('aria-expanded', 'false');
+    }
+} 

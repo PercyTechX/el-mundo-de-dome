@@ -7,16 +7,16 @@
   <!-- La sección <head> contiene metadatos sobre el documento, como el título, el conjunto de caracteres y los estilos -->
   <meta charset="UTF-8">
   <!-- Especificamos que el conjunto de caracteres utilizado es UTF-8, que soporta caracteres especiales como tildes y ñ -->
-  
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Configuramos la vista para dispositivos móviles, asegurando que el contenido se ajuste al ancho de la pantalla -->
-  
+
   <title>Portal Educativo</title>
   <!-- Título de la página que aparecerá en la pestaña del navegador -->
-  
+
   <link rel="shortcut icon" href="img/logo.ico" type="image/x-icon">
   <!-- Enlazamos un ícono (favicon) que aparecerá junto al título en la pestaña del navegador -->
-  
+
   <link rel="stylesheet" href="style.css">
   <!-- Enlazamos un archivo CSS externo llamado "style.css" para aplicar estilos al sitio -->
 </head>
@@ -31,13 +31,13 @@
       <img src="img/logo.png" alt="Logo del portal educativo" width="60" height="50">
       <!-- Insertamos una imagen del logo con un texto alternativo ("alt") para accesibilidad -->
     </div>
-    
+
     <button class="menu-btn" id="menuBtn" aria-label="Menú de navegación" aria-expanded="false">☰</button>
     <!-- Creamos un botón con el símbolo "☰" que servirá para abrir/cerrar un menú en dispositivos móviles -->
-    
+
     <nav class="menu" id="menu" role="navigation" aria-label="Menú principal">
       <!-- La etiqueta <nav> define una sección de navegación con enlaces -->
-      <a href="#" aria-current="page">Canciones</a>
+      <a href="./index.html" aria-current="page">Inicio</a>
       <a href="#">Cuentos</a>
       <a href="#">Juegos</a>
       <a href="#">Recursos</a>
@@ -50,17 +50,23 @@
     <!-- Creamos una sección para mostrar imágenes relacionadas con rangos de edad -->
     <div class="grupo">
       <!-- Usamos un contenedor (<div>) para cada grupo de edad -->
-      <img src="img/3-5.png" alt="Niños de 3 a 5 años" width="150" height="150">
+      <a href="./mini-exploradores-espaciales.html">
+        <img src="img/3-5.png" alt="Niños de 3 a 5 años" width="150" height="150">
+      </a>
       <!-- Insertamos una imagen representando el rango de edad 3-5 años -->
       <!-- <span>3-5 años</span> -->
     </div>
     <div class="grupo">
-      <img src="img/5-7.png" alt="Niños de 5 a 7 años" width="150" height="150">
+      <a href="./explorador-de-mundos.html">
+        <img src="img/5-7.png" alt="Niños de 5 a 7 años" width="150" height="150">
+      </a>
       <!-- Imagen para el rango de edad 5-7 años -->
       <!-- <span>5-7 años</span> -->
     </div>
     <div class="grupo">
-      <img src="img/7-10.png" alt="Niños de 7 a 10 años" width="150" height="150">
+      <a href="./exploradores-galacticos.html">
+        <img src="img/7-10.png" alt="Niños de 7 a 10 años" width="150" height="150">
+      </a>
       <!-- Imagen para el rango de edad 7-10 años -->
       <!-- <span>7-10 años</span> -->
     </div>
@@ -73,15 +79,15 @@
       <img src="./img/apunta.png" alt="Flecha indicadora" class="flecha-imagen">
       <!-- Insertamos una imagen de flecha que apunta hacia los juegos -->
     </div>
-    
+
     <main class="contenedor-juegos" role="main">
       <!-- La etiqueta <main> representa el contenido principal de la página -->
       <h2>Juegos educativos y didácticos</h2>
       <!-- Título que describe el contenido de esta sección -->
-      
+
       <div class="juegos-grid" role="list">
         <!-- Contenedor para organizar los juegos en una cuadrícula -->
-        <div class="juego" role="listitem">Juegos de vocales</div>
+        <div class="juego" role="listitem"><a href="./unir-consecutivos.html">Juego de descubrir</a></div>
         <div class="juego" role="listitem">Juegos del abecedario</div>
         <div class="juego" role="listitem">Juegos de matemáticas</div>
         <div class="juego" role="listitem">Juegos para multiplicar</div>
@@ -97,4 +103,5 @@
   <script src="script.js"></script>
   <!-- Enlazamos un archivo JavaScript externo llamado "script.js" para agregar interactividad -->
 </body>
+
 </html>

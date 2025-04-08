@@ -1,0 +1,190 @@
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0fdfd;
+  color: #333;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Estilos del header */
+.header {
+  background: #0eb4b4;
+  padding: 5px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.logo img {
+  max-width: 60px;
+  height: auto;
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.3s ease;
+}
+
+.menu-btn:hover {
+  transform: scale(1.1);
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.menu a:hover,
+.menu a:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.menu a[aria-current="page"] {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Estilos de la sección de edades */
+.edades {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-image: url(./img/cinta-edades3.png);
+  background-size: cover;
+  background-position: center;
+  padding: 2px 0;
+  width: 100%;
+}
+
+.grupo {
+  flex: 1;
+  max-width: 33.33%;
+  padding: 10px;
+  text-align: center;
+  animation: float 2.6s ease-in-out infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.grupo img {
+  max-width: 150px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+.grupo:hover img {
+  transform: scale(1.2);
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #2acfcf;
+    padding: 1rem;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .edades {
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .grupo {
+    max-width: 33.33%;
+    padding: 5px;
+  }
+  
+  .grupo img {
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grupo img {
+    max-width: 80px;
+  }
+}
+
+canvas {
+  border: 2px solid #000;
+  background-color: #fff;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+h1 {
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: #28a745;
+  font-weight: bold;
+  display: none;
+} 
