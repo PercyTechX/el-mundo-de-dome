@@ -1,107 +1,84 @@
 <!DOCTYPE html>
-<!-- Declaramos el tipo de documento como HTML5 -->
 <html lang="es">
-<!-- La etiqueta <html> define el inicio del documento HTML y especifica que el idioma principal es español (es) -->
-
 <head>
-  <!-- La sección <head> contiene metadatos sobre el documento, como el título, el conjunto de caracteres y los estilos -->
-  <meta charset="UTF-8">
-  <!-- Especificamos que el conjunto de caracteres utilizado es UTF-8, que soporta caracteres especiales como tildes y ñ -->
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Configuramos la vista para dispositivos móviles, asegurando que el contenido se ajuste al ancho de la pantalla -->
-
-  <title>Portal Educativo</title>
-  <!-- Título de la página que aparecerá en la pestaña del navegador -->
-
-  <link rel="shortcut icon" href="img/logo.ico" type="image/x-icon">
-  <!-- Enlazamos un ícono (favicon) que aparecerá junto al título en la pestaña del navegador -->
-
-  <link rel="stylesheet" href="style.css">
-  <!-- Enlazamos un archivo CSS externo llamado "style.css" para aplicar estilos al sitio -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Sitio Web</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
-  <!-- La etiqueta <body> contiene todo el contenido visible de la página web -->
+    <header class="encabezado">
+        <nav class="navegacion">
+            <div class="logo-container">
+                <a href="./index.html" class="logo-enlace"><img src="./img/logo.png" alt="logo"></a>
+            </div>
+            
+            <button class="boton-menu" aria-label="Menú">
+                <span class="linea-menu"></span>
+                <span class="linea-menu"></span>
+                <span class="linea-menu"></span>
+            </button>
+            
+            <ul class="menu">
+                <li><a href="./index.html" class="enlace-menu activo">Inicio</a></li>
+                <li><a href="#" class="enlace-menu">Juegos</a></li>
+                <li><a href="#" class="enlace-menu">Servicios</a></li>
+                <li><a href="#" class="enlace-menu">Nosotros</a></li>
+                <li><a href="#" class="enlace-menu">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <header class="header" role="banner">
-    <!-- La sección <header> representa el encabezado de la página -->
-    <div class="logo">
-      <!-- Dentro del encabezado, creamos un contenedor para el logo -->
-      <img src="img/logo.png" alt="Logo del portal educativo" width="60" height="50">
-      <!-- Insertamos una imagen del logo con un texto alternativo ("alt") para accesibilidad -->
-    </div>
+    <section class="banner">
+        <div class="contenedor-banner">
+            <div class="imagen-banner">
+                <a href="pagina1.html" class="enlace-imagen">
+                    <img src="./img/3-5.png" alt="Imagen 1 del banner">
+                </a>
+            </div>
+            <div class="imagen-banner">
+                <a href="pagina2.html" class="enlace-imagen">
+                    <img src="./img/5-7.png" alt="Imagen 2 del banner">
+                </a>
+            </div>
+            <div class="imagen-banner">
+                <a href="pagina3.html" class="enlace-imagen">
+                    <img src="./img/7-10.png" alt="Imagen 3 del banner">
+                </a>
+            </div>
+        </div>
+    </section>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Menú de navegación" aria-expanded="false">☰</button>
-    <!-- Creamos un botón con el símbolo "☰" que servirá para abrir/cerrar un menú en dispositivos móviles -->
-
-    <nav class="menu" id="menu" role="navigation" aria-label="Menú principal">
-      <!-- La etiqueta <nav> define una sección de navegación con enlaces -->
-      <a href="./index.html" aria-current="page">Inicio</a>
-      <a href="#">Cuentos</a>
-      <a href="#">Juegos</a>
-      <a href="#">Recursos</a>
-      <a href="#">Inglés</a>
-      <!-- Cada <a> es un enlace a diferentes secciones o páginas del sitio -->
-    </nav>
-  </header>
-
-  <section class="edades" aria-label="Rangos de edad">
-    <!-- Creamos una sección para mostrar imágenes relacionadas con rangos de edad -->
-    <div class="grupo">
-      <!-- Usamos un contenedor (<div>) para cada grupo de edad -->
-      <a href="./mini-exploradores-espaciales.html">
-        <img src="img/3-5.png" alt="Niños de 3 a 5 años" width="150" height="150">
-      </a>
-      <!-- Insertamos una imagen representando el rango de edad 3-5 años -->
-      <!-- <span>3-5 años</span> -->
-    </div>
-    <div class="grupo">
-      <a href="./explorador-de-mundos.html">
-        <img src="img/5-7.png" alt="Niños de 5 a 7 años" width="150" height="150">
-      </a>
-      <!-- Imagen para el rango de edad 5-7 años -->
-      <!-- <span>5-7 años</span> -->
-    </div>
-    <div class="grupo">
-      <a href="./exploradores-galacticos.html">
-        <img src="img/7-10.png" alt="Niños de 7 a 10 años" width="150" height="150">
-      </a>
-      <!-- Imagen para el rango de edad 7-10 años -->
-      <!-- <span>7-10 años</span> -->
-    </div>
-  </section>
-
-  <div class="contenido-principal">
-    <!-- Contenedor principal para el contenido central de la página -->
-    <div class="imagen-lateral">
-      <!-- Contenedor para una imagen lateral -->
-      <img src="./img/apunta.png" alt="Flecha indicadora" class="flecha-imagen">
-      <!-- Insertamos una imagen de flecha que apunta hacia los juegos -->
-    </div>
-
-    <main class="contenedor-juegos" role="main">
-      <!-- La etiqueta <main> representa el contenido principal de la página -->
-      <h2>Juegos educativos y didácticos</h2>
-      <!-- Título que describe el contenido de esta sección -->
-
-      <div class="juegos-grid" role="list">
-        <!-- Contenedor para organizar los juegos en una cuadrícula -->
-        <div class="juego" role="listitem"><a href="./unir-consecutivos.html">Juego de descubrir</a></div>
-        <div class="juego" role="listitem">Juegos del abecedario</div>
-        <div class="juego" role="listitem">Juegos de matemáticas</div>
-        <div class="juego" role="listitem">Juegos para multiplicar</div>
-        <div class="juego" role="listitem">Suma y resta</div>
-        <div class="juego" role="listitem">Rompecabezas</div>
-        <div class="juego" role="listitem">Geografía</div>
-        <div class="juego" role="listitem">Saludo y comunicación</div>
-        <!-- Cada <div> representa un juego específico -->
-      </div>
+    <main>
+        <section class="seccion-principal">
+            <div class="contenedor-principal">
+                <h1 class="titulo-destacado">¡Bienvenidos a Nuestro Mundo de Aprendizaje!</h1>
+                <div class="imagen-principal">
+                    <img src="./img/profesora.png" alt="Psicologa-Domenica">
+                </div>
+                <div class="contenedor-botones">
+                    <a href="#" class="boton boton-principal">Conoce sobre mi</a>
+                    <a href="#" class="boton boton-secundario">Aprende mas aqui</a>
+                </div>
+            </div>
+        </section>
     </main>
-  </div>
 
-  <script src="script.js"></script>
-  <!-- Enlazamos un archivo JavaScript externo llamado "script.js" para agregar interactividad -->
+    <footer class="pie-pagina">
+        <div class="contenedor-redes">
+            <a href="https://tiktok.com" target="_blank" class="red-social">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="red-social">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" class="red-social">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
-
 </html>

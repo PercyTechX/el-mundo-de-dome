@@ -1,418 +1,478 @@
-/* 
-  Selector universal (*): Aplica estilos globales a todos los elementos.
-  - margin: 0; y padding: 0; eliminan márgenes y rellenos predeterminados.
-  - box-sizing: border-box; asegura que el ancho y alto de los elementos incluyan bordes y rellenos.
-*/
+/* Variables globales */
+:root {
+    --color-principal: #5d19b1;
+    --color-secundario: #f370ff;
+    --color-texto: #ffffff;
+    --color-texto-secundario: #000000;
+    --color-fondo: #ffffff;
+    --sombra: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --transicion: all 0.3s ease;
+}
+
+/* Reset básico */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/*
-  Estilos generales para el cuerpo (body):
-  - font-family: Define la fuente principal del sitio.
-  - background: Color de fondo de la página.
-  - color: Color del texto.
-  - display: grid; organiza el contenido en una cuadrícula.
-  - grid-template-rows: Define las filas de la cuadrícula (encabezado, contenido principal, pie de página).
-  - min-height: 100vh; asegura que el cuerpo ocupe al menos toda la altura de la ventana.
-  - line-height: 1.6;
-*/
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #f0fdfd;
-  color: #333;
-  display: grid;
-  grid-template-rows: auto auto 1fr;
-  min-height: 100vh;
-  line-height: 1.6;
-}
-
-/*
-  Estilos para el encabezado (.header):
-  - background: Color de fondo del encabezado.
-  - padding: Espacio interno alrededor del contenido.
-  - display: flex; organiza los elementos del encabezado en una fila.
-  - justify-content: space-between; distribuye los elementos en los extremos.
-  - align-items: center; alinea verticalmente los elementos.
-  - flex-wrap: wrap; permite que los elementos se ajusten en varias líneas si es necesario.
-  - position: relative;
-*/
-.header {
-  background: #0eb4b4;
-  padding: 5px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  position: relative;
-}
-
-/*
-  Estilos para el logo (.logo):
-  - font-size: Tamaño del texto del logo.
-  - font-weight: Negrita para destacar el logo.
-  - color: Color blanco para contraste.
-*/
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: white;
-}
-
-/*
-  Estilos para el botón del menú (.menu-btn):
-  - display: none;
-  - background: none;
-  - border: none;
-  - color: white;
-  - font-size: 1.5rem;
-  - cursor: pointer;
-  - padding: 5px;
-  - transition: transform 0.3s ease;
-*/
-.menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 5px;
-  transition: transform 0.3s ease;
-}
-
-.menu-btn:hover {
-  transform: scale(1.1);
-}
-
-/*
-  Estilos para el menú (.menu):
-  - display: flex;
-  - gap: 20px;
-*/
-.menu {
-  display: flex;
-  gap: 20px;
-}
-
-/*
-  Estilos para los enlaces del menú (.menu a):
-  - color: white;
-  - text-decoration: none;
-  - font-weight: 500;
-  - padding: 5px 10px;
-  - border-radius: 4px;
-  - transition: background-color 0.3s ease;
-*/
-.menu a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 5px 10px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-.menu a:hover,
-.menu a:focus {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-.menu a[aria-current="page"] {
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
-/*
-  Estilos para la sección de rangos de edad (.edades):
-  - display: flex; organiza las imágenes en una fila.
-  - justify-content: space-around; distribuye las imágenes uniformemente.
-  - align-items: center; alinea verticalmente las imágenes.
-  - background-image: Agrega una imagen de fondo.
-  - background-size: cover; ajusta la imagen de fondo al tamaño del contenedor.
-  - background-position: center; centra la imagen de fondo.
-  - padding: Espacio interno alrededor del contenido.
-*/
-.edades {
-  /* border: 5px solid #ff0000; */
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-image: url(./img/cinta-edades3.png);
-  background-size: cover;
-  background-position: center;
-  padding: 2px 0;
-  width: 100%;
-}
-
-/*
-  Estilos para cada grupo de edad (.grupo):
-  - flex: 1; hace que cada grupo ocupe el mismo espacio disponible.
-  - max-width: Limita el ancho máximo de cada grupo.
-  - padding: Espacio interno alrededor del contenido.
-  - text-align: center; centra el texto dentro del grupo.
-  - animation: Aplica una animación de flotación infinita.
-  - display: flex;
-  - flex-direction: column;
-  - align-items: center;
-  - gap: 10px;
-*/
-.grupo {
-  /* border: 1px solid #d0ff00; */
-  flex: 1;
-  max-width: 33.33%;
-  padding: 10px;
-  text-align: center;
-  animation: float 2.6s ease-in-out infinite;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-}
-
-.grupo img {
-  /* border: 5px solid #000; */
-  max-width: 150px;
-  height: auto;
-  transition: transform 0.3s ease;
-}
-
-/*
-  Animación "float": Hace que los elementos se muevan suavemente hacia arriba y abajo.
-*/
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-5px); }
-  100% { transform: translateY(0px); }
-}
-
-/*
-  Efecto hover para los grupos (.grupo:hover):
-  - transform: scale(1.1); aumenta el tamaño del grupo al pasar el cursor.
-*/
-.grupo:hover img {
-  transform: scale(1.2);
-}
-
-/*
-  Estilos para el texto dentro de los grupos (.grupo span):
-  - color: Color del texto.
-  - font-weight: 500;
-  - font-size: 1rem;
-*/
-/* .grupo span {
-  color: #333;
-  font-weight: 500;
-  font-size: 1rem;
-} */
-
-/*
-  Estilos para el contenido principal (.contenido-principal):
-  - display: grid; organiza el contenido en una cuadrícula.
-  - grid-template-areas: Define áreas específicas para el diseño.
-  - grid-template-columns: Divide el contenido en columnas (lateral, contenido central, derecho).
-  - max-width: Limita el ancho máximo del contenido.
-  - margin: Centra el contenido horizontalmente.
-  - gap: Espacio entre las áreas de la cuadrícula.
-  - padding: Espacio interno alrededor del contenido.
-*/
-.contenido-principal {
-  display: grid;
-  grid-template-areas: 
-    "lateral contenido derecho";
-  grid-template-columns: 25% 50% 25%;
-  max-width: 1350px;
-  margin: 0 auto;
-  width: 100%;
-  gap: 20px;
-  padding: 20px;
-}
-
-/*
-  Estilos para la imagen lateral (.imagen-lateral):
-  - grid-area: Asigna esta área al diseño de la cuadrícula.
-  - width y height: Ajustan el tamaño de la imagen.
-  - display: flex; organiza el contenido en una fila.
-  - align-items y justify-content: Centran la imagen.
-*/
-.imagen-lateral {
-  grid-area: lateral;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-}
-
-/*
-  Estilos para la flecha de la imagen lateral (.flecha-imagen):
-  - max-width: Limita el ancho máximo de la imagen.
-  - height: auto; mantiene la proporción de aspecto.
-  - transform: translateX(10px); ajusta la posición horizontal.
-*/
-.flecha-imagen {
-  max-width: 150%;
-  height: auto;
-  transform: translateX(50px);
- 
- 
-
-}
-
-/*
-  Estilos para el contenedor de juegos (.contenedor-juegos):
-  - grid-area: Asigna esta área al diseño de la cuadrícula.
-  - padding: Espacio interno alrededor del contenido.
-  - width: Ancho del contenedor.
-*/
-.contenedor-juegos {
-  grid-area: contenido;
-  padding: 1px 10px;
-  width: 100%;
-}
-
-/*
-  Estilos para el título de los juegos (.contenedor-juegos h2):
-  - text-align: center; centra el texto.
-  - margin-bottom: Espacio debajo del título.
-  - color: Color del texto.
-  - font-size: 1.8rem;
-*/
-.contenedor-juegos h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #007d7d;
-  font-size: 1.8rem;
-}
-
-/*
-  Estilos para la cuadrícula de juegos (.juegos-grid):
-  - display: grid; organiza los juegos en una cuadrícula.
-  - grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); crea columnas responsivas.
-  - gap: Espacio entre los juegos.
-*/
-.juegos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-/*
-  Estilos para cada juego (.juego):
-  - background: Color de fondo.
-  - border-radius: Bordes redondeados.
-  - padding: Espacio interno alrededor del contenido.
-  - text-align: center; centra el texto.
-  - font-weight: Negrita para destacar.
-  - color: Color del texto.
-  - box-shadow: Sombra para dar profundidad.
-  - transition: transform 0.2s, box-shadow 0.2s;
-  - cursor: pointer;
-*/
-.juego {
-  background: #ffe9a7;
-  border-radius: 10px;
-  padding: 30px 20px;
-  text-align: center;
-  font-weight: bold;
-  color: #444;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
-  cursor: pointer;
-}
-
-.juego:hover,
-.juego:focus {
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/*
-  Estilos para el área derecha (.area-derecha):
-  - grid-area: Asigna esta área al diseño de la cuadrícula.
-  - padding: Espacio interno alrededor del contenido.
-*/
-.area-derecha {
-  grid-area: derecho;
-  padding: 20px;
-}
-
-/*
-  Media queries para pantallas pequeñas (hasta 768px):
-  - Cambia el diseño de la cuadrícula para adaptarse a pantallas pequeñas.
-  - Oculta las áreas laterales.
-  - Ajusta el tamaño de las imágenes y otros elementos.
-*/
-@media (max-width: 768px) {
-  .menu-btn {
-    display: block;
-  }
-
-  .menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #2acfcf;
-    padding: 1rem;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .menu.active {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-texto-secundario);
     display: flex;
-  }
-
-  .contenido-principal {
-    grid-template-areas: 
-      "contenido contenido contenido";
-    grid-template-columns: 1fr;
-  }
-
-  .imagen-lateral,
-  .area-derecha {
-    display: none;
-  }
-
-  .edades {
-    flex-direction: row;
-    gap: 10px;
-    padding: 10px;
-  }
-
-  .grupo {
-    max-width: 33.33%;
-    padding: 5px;
-  }
-  
-  .grupo img {
-    max-width: 100px;
-  }
-
-  .grupo span {
-    font-size: 0.8rem;
-  }
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/*
-  Media queries para pantallas muy pequeñas (hasta 480px):
-  - Reduce aún más el tamaño de las imágenes.
-*/
-@media (max-width: 480px) {
-  .grupo img {
-    max-width: 80px;
-  }
+/* Encabezado y Navegación */
+.encabezado {
+    background-color: var(--color-principal);
+    box-shadow: var(--sombra);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
 
-  .grupo span {
-    font-size: 0.7rem;
-  }
+.navegacion {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-  .juegos-grid {
-    grid-template-columns: 1fr;
-  }
+.logo-container {
+    width: 120px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
 
-  .juego {
-    padding: 20px 15px;
-  }
+.logo-enlace {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.logo-enlace img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: var(--transicion);
+}
+
+.logo-enlace:hover img {
+    transform: scale(1.05);
+}
+
+.menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.enlace-menu {
+    color: var(--color-texto);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: var(--transicion);
+}
+
+.enlace-menu:hover {
+    color: var(--color-texto);
+    background-color: rgba(255, 174, 12, 0.952);
+}
+
+.enlace-menu.activo {
+    color: var(--color-texto);
+    background-color: rgba(255, 174, 12, 0.952);
+}
+
+/* Botón de menú móvil */
+.boton-menu {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+.linea-menu {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-texto);
+    margin: 5px 0;
+    transition: var(--transicion);
+}
+
+/* Media Queries para Navegación */
+@media (max-width: 768px) {
+    .navegacion {
+        padding: 0.5rem 1rem;
+    }
+
+    .boton-menu {
+        display: block;
+    }
+
+    .menu {
+        position: fixed;
+        top: 60px;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: auto;
+        background-color: var(--color-principal);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        border-radius: 0 0 0 10px;
+        box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.2);
+        transition: right 0.3s ease;
+        z-index: 1000;
+    }
+
+    .menu.activo {
+        right: 0;
+    }
+
+    .enlace-menu {
+        font-size: 1.1rem;
+        padding: 0.8rem 1.5rem;
+        width: 100%;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    .enlace-menu:hover {
+        background-color: rgba(255, 174, 12, 0.952);
+        transform: translateX(-5px);
+    }
+}
+
+@media (max-width: 576px) {
+    .menu {
+        width: 70%;
+        max-width: 250px;
+        top: 50px;
+    }
+
+    .enlace-menu {
+        font-size: 1rem;
+        padding: 0.7rem 1.2rem;
+    }
+}
+
+/* Banner */
+.banner {
+    /* border: solid 1px rgb(255, 121, 12); */
+    width: 100%;
+       overflow: hidden;
+    background-image: url(./img/cinta-edades3.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 2rem 0; */
+    min-height: 28vh;
+    position: relative;
+}
+
+.contenedor-banner {
+    /* border: solid 1px rgb(21, 255, 0); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* padding: 0 1rem; */
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.imagen-banner {
+    /* border: solid 1px rgb(0, 255, 242); */
+    flex: 1;
+    max-width: 20%;
+    min-width: 120px;
+    aspect-ratio: 1/1;
+    position: relative;
+    transition: var(--transicion);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.enlace-imagen {
+    /* border: solid 1px rgb(255, 0, 221); */
+    padding: 0;
+    display: block;
+    width: 90%;
+    height: 90%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.enlace-imagen img {
+    width: 100%;
+    height: 80%;
+    object-fit: contain;
+    animation: movimientoVertical 8s infinite ease-in-out;
+    transition: var(--transicion);
+    max-width: 95%;
+    max-height: 95%;
+}
+
+.imagen-banner:hover {
+    transform: scale(1.1);
+}
+
+.imagen-banner:hover .enlace-imagen img {
+    animation-play-state: paused;
+}
+
+@keyframes movimientoVertical {
+    0%, 100% {
+        transform: translateY(-1px);
+    }
+    50% {
+        transform: translateY(20px);
+    }
+}
+
+/* Media Queries para Banner */
+@media (max-width: 992px) {
+    .banner {
+        min-height: 25vh;
+    }
+    
+    .contenedor-banner {
+        width: 95%;
+        gap: 1.5%;
+    }
+    
+    .imagen-banner {
+        max-width: 22%;
+        min-width: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner {
+        min-height: 20vh;
+    }
+    
+    .contenedor-banner {
+        width: 100%;
+        gap: 1%;
+        flex-wrap: wrap;
+    }
+    
+    .imagen-banner {
+        max-width: 45%;
+        min-width: 90px;
+    }
+}
+
+@media (max-width: 576px) {
+    .banner {
+        min-height: 15vh;
+    }
+    
+    .contenedor-banner {
+        gap: 0.5%;
+    }
+    
+    .imagen-banner {
+        max-width: 48%;
+        min-width: 80px;
+    }
+}
+
+/* Footer */
+.pie-pagina {
+    background-color: var(--color-principal);
+    padding: 1.5rem 0;
+    margin-top: auto;
+    width: 100%;
+}
+
+.contenedor-redes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.red-social {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    width: clamp(35px, 8vw, 50px);
+    height: clamp(35px, 8vw, 50px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-texto);
+    text-decoration: none;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: var(--transicion);
+}
+
+.red-social:hover {
+    color: var(--color-secundario);
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajustes Responsive para Footer */
+@media (max-width: 768px) {
+    .pie-pagina {
+        padding: 1.5rem 0;
+    }
+    
+    .contenedor-redes {
+        gap: 1.5rem;
+    }
+    
+    .red-social {
+        font-size: 1.5rem;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .pie-pagina {
+        padding: 1rem 0;
+    }
+    
+    .contenedor-redes {
+        gap: 1rem;
+    }
+    
+    .red-social {
+        font-size: 1.2rem;
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* Sección Principal */
+.seccion-principal {
+    padding: 2rem 1rem;
+    background-color: var(--color-fondo);
+    flex: 1;
+}
+
+.contenedor-principal {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.titulo-destacado {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--color-principal);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    padding: 0 1rem;
+}
+
+.imagen-principal {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto 2rem;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.imagen-principal img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: var(--transicion);
+}
+
+.imagen-principal:hover img {
+    transform: scale(1.02);
+}
+
+.contenedor-botones {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+}
+
+.boton {
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transicion);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    min-width: 200px;
+    text-align: center;
+}
+
+.boton-principal {
+    background-color: var(--color-principal);
+    color: var(--color-texto);
+}
+
+.boton-secundario {
+    background-color: var(--color-secundario);
+    color: var(--color-texto);
+}
+
+.boton:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Animación del botón de menú */
+.boton-menu.activo .linea-menu:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.boton-menu.activo .linea-menu:nth-child(2) {
+    opacity: 0;
+}
+
+.boton-menu.activo .linea-menu:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
 }
