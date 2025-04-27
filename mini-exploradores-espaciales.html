@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Mi Sitio Web</title>
+        <title>Mini Exploradores Espaciales</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </head>
@@ -30,13 +30,54 @@
         </nav>
     </header>
 
+    <div class="contenedor-columnas">
+        <div class="columna-izquierda">
+            <div class="contenedor-ayuda">
+                <h2>¡Ayuda a los Astronautas!</h2>
+                <p>Conecta los números del 1 al 9 para ayudar a los astronautas a llegar a su nave espacial.</p>
+                <div class="instrucciones">
+                    <h3>Instrucciones:</h3>
+                    <ol>
+                        <li>Haz clic en el número 1</li>
+                        <li>Sigue los números en orden</li>
+                        <li>¡Conecta todos los números!</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
 
+        <div class="columna-central">
+            <div class="contenedor-juego">
+                <h2 class="titulo-juego">¡Conecta los Números Espaciales!</h2>
+                <div class="canvas-container">
+                    <canvas id="gameCanvas"></canvas>
+                    <div id="congratsMessage" class="mensaje-felicidades">
+                        <i class="fas fa-rocket"></i>
+                        <p>¡Felicidades, Explorador Espacial!</p>
+                        <p>¡Has completado la misión!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-
-
-
-
-
+        <div class="columna-derecha">
+            <div class="contenedor-logros">
+                <h2>Logros Espaciales</h2>
+                <div class="logro">
+                    <i class="fas fa-star"></i>
+                    <p>Conecta los números</p>
+                </div>
+                <div class="logro">
+                    <i class="fas fa-rocket"></i>
+                    <p>Completa la misión</p>
+                </div>
+                <div class="logro">
+                    <i class="fas fa-medal"></i>
+                    <p>¡Conviértete en un Explorador Espacial!</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="pie-pagina">
         <div class="contenedor-redes">
@@ -51,6 +92,7 @@
             </a>
         </div>
     </footer>
+    <script src="game.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
