@@ -95,10 +95,10 @@ body {
     background-color: rgba(255, 174, 12, 0.952);
 }
 
-.enlace-menu.activo {
+/* .enlace-menu.activo {
     color: var(--color-texto);
     background-color: rgba(255, 174, 12, 0.952);
-}
+} */
 
 /* Botón de menú móvil */
 .boton-menu {
