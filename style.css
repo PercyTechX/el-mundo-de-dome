@@ -530,7 +530,7 @@ body {
 }
 
 .contenedor-publicidad {
-    background: linear-gradient(120deg, #f370ff 40%, #5d19b1 100%);
+    background: linear-gradient(120deg, #ee58fb 40%, #5d19b1 100%);
     border-radius: 15px;
     padding: 1.2rem 1rem;
     box-shadow: 0 4px 12px rgba(93, 25, 177, 0.10);
@@ -683,15 +683,17 @@ body {
 }
 
 .titulo-juego {
-    color: #f1c40f;
+    /* border: solid 1px black; */
+    color: #ffc800;
     font-size: 2rem;
     margin-bottom: 1rem;
     font-family: 'Comic Sans MS', cursive;
-    text-shadow: 1px 1px 4px #5d19b1;
+    text-shadow: 1px 1px 4px #000000;
     text-align: center;
     width: 100%;
     box-sizing: border-box;
     display: block;
+    
 }
 
 .canvas-container {
@@ -707,7 +709,7 @@ body {
 #gameCanvas {
     display: block;
     margin: auto;
-    background-color: #171e78;
+    background-color: #171e78;  
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(52, 152, 219, 0.3);
 }
@@ -800,42 +802,6 @@ body {
     font-size: 1.1rem;
 }
 
-/* Estilos para la columna derecha (logros) */
-.contenedor-logros {
-    background-color: var(--color-astronauta);
-    padding: 1.5rem;
-    border-radius: 15px;
-    color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.contenedor-logros h2 {
-    color: var(--color-estrella);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    font-family: 'Comic Sans MS', cursive;
-}
-
-.logro {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 1rem;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.logro i {
-    color: var(--color-estrella);
-    font-size: 1.5rem;
-}
-
-.logro p {
-    margin: 0;
-    font-size: 1.1rem;
-}
-
 /* Media Queries para el juego */
 @media (max-width: 768px) {
     .contenedor-juego {
@@ -869,4 +835,99 @@ body {
     .contenedor-juego {
         max-width: 100vw;
     }
+}
+
+/* Estilos para cards de juegos 3-5 */
+.contenedor-juegos-cards {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.card-juego {
+    background: linear-gradient(135deg, #a259e6 60%, #5d19b1 100%);
+    border-radius: 18px;
+    box-shadow: 0 4px 16px rgba(93, 25, 177, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    padding: 0.7rem 0.5rem 0.7rem 0.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    aspect-ratio: 1/1;
+    min-width: 0;
+    min-height: 0;
+    position: relative;
+    justify-content: center;
+}
+
+.card-juego:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 24px #a259e6;
+}
+
+.card-juego img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+    background: #fff;
+    box-shadow: 0 2px 8px #5d19b1;
+}
+
+.card-juego h3 {
+    font-size: 1rem;
+    font-family: 'Comic Sans MS', cursive;
+    color: #fff;
+    margin: 0;
+    text-align: center;
+    text-shadow: 1px 1px 4px #5d19b1;
+}
+
+@media (max-width: 900px) {
+    .grid-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    .card-juego {
+        aspect-ratio: 1/1;
+        padding: 0.5rem 0.3rem 0.5rem 0.3rem;
+    }
+    .card-juego img {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-cards {
+        grid-template-columns: 1fr;
+        gap: 0.7rem;
+    }
+    .card-juego {
+        aspect-ratio: 1/1;
+        padding: 0.4rem 0.2rem 0.4rem 0.2rem;
+    }
+    .card-juego img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.top-central {
+    justify-content: flex-start !important;
 }

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mini Exploradores Espaciales</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </head>
+<body>
+    <header class="encabezado">
+        <nav class="navegacion">
+            <div class="logo-container">
+                <a href="./index.html" class="logo-enlace"><img src="./img/logo.png" alt="logo"></a>
+            </div>
+            
+            <button class="boton-menu" aria-label="Menú">
+                <span class="linea-menu"></span>
+                <span class="linea-menu"></span>
+                <span class="linea-menu"></span>
+            </button>
+            
+            <ul class="menu">
+                <li><a href="./index.html" class="enlace-menu activo">Inicio</a></li>
+                <li><a href="./juegos.html" class="enlace-menu">Juegos</a></li>
+                <li><a href="./cuentos.html" class="enlace-menu">Cuentos</a></li>
+                <li><a href="./recursos.html" class="enlace-menu">Recursos</a></li>
+                <li><a href="./servicios.html" class="enlace-menu">Servicios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="contenedor-columnas">
+        <div class="columna-izquierda">
+            <div class="contenedor-ayuda">
+                <h2>¡Ayuda a los Astronautas!</h2>
+                <p>Conecta los números del 1 al 9 para ayudar a los astronautas a llegar a su nave espacial.</p>
+                <div class="instrucciones">
+                    <h3>Instrucciones:</h3>
+                    <ol>
+                        <li>Haz clic en el número 1</li>
+                        <li>Sigue los números en orden</li>
+                        <li>¡Conecta todos los números!</li>
+                        <li>¡Diviertete!</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="columna-central">
+            <div class="contenedor-juego">
+                <h2 class="titulo-juego">¡Conecta los Números Espaciales!</h2>
+                <div class="canvas-container">
+                    <canvas id="gameCanvas"></canvas>
+                    <div id="congratsMessage" class="mensaje-felicidades">
+                        <i class="fas fa-rocket"></i>
+                        <p>¡Felicidades, Explorador Espacial!</p>
+                        <p>¡Has completado la misión!</p>
+                        <button id="playAgainBtn" class="boton-publicidad" style="margin-top:1rem;">Jugar de nuevo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="columna-derecha">
+            <div class="contenedor-publicidad">
+                <h2>Aprende con Domenica</h2>
+                <div class="banner-publicidad">
+                    <img src="./img/pub-derecha.png" alt="Publicidad derecha">
+                    <p>¡Descubre más juegos y recursos en nuestra web</p>
+                    <p> Sigue aprendiendo en casa con el material de la Psicológa Domenica!</p>
+                    <a href="./recursos.html" target="_blank" class="boton-publicidad">Visitar sitio</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="pie-pagina">
+        <div class="contenedor-redes">
+            <a href="https://tiktok.com" target="_blank" class="red-social">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="red-social">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" class="red-social">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </footer>
+    <script src="game.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
