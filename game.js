@@ -222,6 +222,22 @@ function createConfetti() {
     animate();
 }
 
+// Función para reiniciar el juego
+function reiniciarJuego() {
+    // Mezclar los números
+    for (let i = shuffledNumbers.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledNumbers[i], shuffledNumbers[j]] = [shuffledNumbers[j], shuffledNumbers[i]];
+    }
+    currentNumber = 1;
+    path = [];
+    congratsMessage.style.display = 'none';
+    drawGrid();
+}
+
+// Evento para el botón 'Jugar de nuevo'
+document.getElementById('playAgainBtn').addEventListener('click', reiniciarJuego);
+
 // Ajustar el canvas al cargar o redimensionar la ventana
 window.addEventListener('resize', resizeCanvas);
 resizeCanvas(); 
