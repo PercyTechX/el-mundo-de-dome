@@ -553,7 +553,7 @@ body {
     max-width: 220px;
     margin: 0 auto 1rem auto;
     border-radius: 12px;
-    /* overflow: visible; */
+    overflow: visible;
     background: none;
     box-shadow: none;
     display: flex;
@@ -595,8 +595,8 @@ body {
 }
 
 .boton-publicidad:hover {
-    background: #fff;
-    color: #f370ff;
+    background: #ffcc00;
+    color: #620086;
 }
 
 @media (max-width: 900px) {
