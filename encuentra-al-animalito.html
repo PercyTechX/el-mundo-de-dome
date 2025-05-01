@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuentra al Animalito</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div class="contenedor-juego">
+        <h1 class="titulo-juego">🎯 Encuentra al Animalito 🐶</h1>
+        
+        <div class="contenedor-ayuda">
+            <h2>Instrucciones</h2>
+            <div class="instrucciones">
+                <p>¡Escucha atentamente y haz clic en el animal que se te pide encontrar!</p>
+            </div>
+        </div>
+
+        <div class="contenedor-animales">
+            <div class="animal" data-animal="perro">
+                <img src="img/animales/perro.png" alt="Perro">
+            </div>
+            <div class="animal" data-animal="gato">
+                <img src="img/animales/gato.png" alt="Gato">
+            </div>
+            <div class="animal" data-animal="conejo">
+                <img src="img/animales/conejo.png" alt="Conejo">
+            </div>
+        </div>
+
+        <div class="mensaje-juego">
+            <p id="pregunta">¿Dónde está el animal?</p>
+        </div>
+
+        <div id="mensaje-felicidades" class="mensaje-felicidades" style="display: none;">
+            <i>🎉</i>
+            <p>¡Felicidades! ¡Lo encontraste!</p>
+            <button id="jugar-nuevamente" class="boton boton-principal">Jugar de nuevo</button>
+        </div>
+
+        <div id="mensaje-error" class="mensaje-error" style="display: none;">
+            <p>¡Ups! Intenta de nuevo</p>
+        </div>
+    </div>
+
+    <script src="encuentra-al-animalito.js"></script>
+</body>
+</html> 
